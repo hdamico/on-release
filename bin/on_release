@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'on_release'
+OnRelease.run_scripts

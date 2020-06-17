@@ -8,7 +8,9 @@ Gem::Specification.new do |s|
   s.date = '2020-05-31'
   s.description = 'Run scripts on release'
   s.email = 'hernan.damico67@gmail.com'
-  s.files = ['Rakefile', 'lib/on_release.rb', 'lib/on_release/translator.rb', 'bin/on_release']
+  s.files = [
+    'on-release.gemspec'
+  ].concat(Dir.glob('lib/**/*').reject { |f| File.directory?(f) || f =~ /~$/ })
   s.test_files = ['test/test_on_release.rb']
   s.require_paths = ['lib']
   s.rubygems_version = '1.6.2'
@@ -19,4 +21,7 @@ Gem::Specification.new do |s|
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0')
     end
   end
+
+  s.add_development_dependency 'byebug', '~> 11.1', '>= 11.1.3'
+  s.add_development_dependency 'rspec', '~> 3.9'
 end

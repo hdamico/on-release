@@ -1,11 +1,13 @@
 class OnRelease
-  def self.run_scripts
-    OnRelease::ScriptRunner.run
-  end
+  class << self
+    attr_accessor :filename, :current_time
 
-  def self.setup
-    if block_given?
-      # TODO
+    def run_scripts
+      OnRelease::ScriptRunner.run
+    end
+
+    def configure
+      yield self if block_given?
     end
   end
 end
